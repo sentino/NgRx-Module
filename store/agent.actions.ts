@@ -1,12 +1,6 @@
-import { type } from "../../../../utils";
-import { Action } from "@ngrx/store";
-import {
-	AgentActiveClients,
-	AgentProfile,
-	AgentInvoices,
-	AgentLostClients,
-	AgentPendingClients
-} from "./agent.interface";
+import { type } from '../../../utils';
+import { Action } from '@ngrx/store';
+import { AgentActiveClients, AgentInvoices, AgentLostClients, AgentPendingClients, AgentProfile } from './agent.interface';
 
 
 const CATEGORY = 'Agent';

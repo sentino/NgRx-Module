@@ -35,7 +35,7 @@ export interface AgentProfile {
 }
 
 export interface AgentPendingClients {
-	memberSince: string;
+	dateInvited: string;
 	emailAddress: string;
 }
 export interface AgentActiveClients {

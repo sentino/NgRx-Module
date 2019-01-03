@@ -1,10 +1,38 @@
-import {
-	AgentActiveClients,
-	AgentProfile,
-	AgentInvoices,
-	AgentLostClients,
-	AgentPendingClients
-} from "./agent.interface";
+import { Agent, AgentActiveClients, AgentInvoices, AgentLostClients, AgentPendingClients, AgentProfile } from './agent.interface';
+
+
+export class AgentProfileModel {
+	profile: AgentProfile;
+	pendingClients: AgentPendingClients[];
+	activeClients: AgentActiveClients[];
+	lostClients: AgentLostClients[];
+	invoices: AgentInvoices[];
+
+	constructor(res: Agent){
+		const { agentProfileId, address, firstName, lastName, fullName, taxNumber,
+						totalActiveClients, totalLostClients, totalEarned, nextPayoutAmount, firstYearClients,
+						secondYearClients, thirdYearClients } = res;
+		this.profile = {
+					agentProfileId,
+					address,
+					firstName,
+					lastName,
+					fullName,
+					taxNumber,
+					totalActiveClients,
+					totalLostClients,
+					totalEarned,
+					nextPayoutAmount,
+					firstYearClients,
+					secondYearClients,
+					thirdYearClients
+		};
+		this.pendingClients = res.pendingClients;
+		this.activeClients = res.activeClients;
+		this.lostClients = res.lostClients;
+		this.invoices = res.invoices;
+	}
+}
 
 
 export const initialAgentProfile: AgentProfile = {
@@ -24,7 +52,7 @@ export const initialAgentProfile: AgentProfile = {
 };
 
 export const initialAgentPendingClients: AgentPendingClients[] = [{
-	memberSince: '',
+	dateInvited: '',
 	emailAddress: '',
 }];
 

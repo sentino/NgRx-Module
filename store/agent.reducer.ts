@@ -1,15 +1,12 @@
+import { AgentActiveClients, AgentInvoices, AgentLostClients, AgentPendingClients, AgentProfile } from './agent.interface';
 import {
-	AgentActiveClients, AgentProfile, AgentInvoices,
-	AgentLostClients,
-	AgentPendingClients
-} from "./agent.interface";
-import {
-	initialAgentActiveClients,
-	initialAgentInvoices,
-	initialAgentLostClients,
-	initialAgentPendingClients, initialAgentProfile
-} from "./agent.model";
-import * as fromAction from "./agent.actions";
+  initialAgentActiveClients,
+  initialAgentInvoices,
+  initialAgentLostClients,
+  initialAgentPendingClients,
+  initialAgentProfile,
+} from './agent.model';
+import * as fromAction from './agent.actions';
 
 
 export interface State {
@@ -42,17 +39,17 @@ export function reducer(state = initialState, action: fromAction.All): State {
 			};
 		}
 
-		case fromAction.GET_AGENT_DETAILS_SUCCESS: {
-			return {
-				...state,
-				loading: false,
-				profile: action.payload.profile,
-				pendingClients: action.payload.pendingClients,
-				activeClients: action.payload.activeClients,
-				lostClients: action.payload.lostClients,
-				invoices: action.payload.invoices
-			};
-		}
+    case fromAction.GET_AGENT_DETAILS_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        profile: action.payload.profile,
+        pendingClients: action.payload.pendingClients,
+        activeClients: action.payload.activeClients,
+        lostClients: action.payload.lostClients,
+        invoices: action.payload.invoices
+      };
+    }
 
 		case fromAction.GET_AGENT_INVOICE_DETAILS_SUCCESS: {
 			return {

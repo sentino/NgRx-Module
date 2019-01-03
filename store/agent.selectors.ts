@@ -1,6 +1,6 @@
-import { NovaManusState } from "../../../../reducers";
-import { createSelector } from "@ngrx/store";
-import * as fromReducer from "./agent.reducer"
+import { NovaManusState } from '../../../reducers';
+import { createSelector } from '@ngrx/store';
+import * as fromReducer from './agent.reducer';
 
 
 export const selectsAgentState = (state: NovaManusState): fromReducer.State => state.agent;
